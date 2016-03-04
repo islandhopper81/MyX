@@ -30,7 +30,7 @@ do{ my $x = [
                                     'conflicts',
                                     'recommends'
                                   ],
-         'base_dir' => '/Users/Scott/temp/MyX',
+         'base_dir' => '/Users/Scott/Projects/MyX-trunk',
          'allow_mb_mismatch' => 0,
          'xs_files' => undef,
          'destdir' => undef,
@@ -93,7 +93,7 @@ do{ my $x = [
                              ],
          'release_status' => 'stable',
          'needs_compiler' => '',
-         'orig_dir' => '/Users/Scott/temp/MyX',
+         'orig_dir' => '/Users/Scott/Projects/MyX-trunk',
          'include_dirs' => [],
          'test_requires' => {},
          'installdirs' => 'site',
