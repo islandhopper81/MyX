@@ -3,7 +3,7 @@ package MyX::Generic;
 use warnings;
 use strict;
 
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 use Exception::Class (
     'MyX::Generic' => {
@@ -81,6 +81,11 @@ use Exception::Class (
         fields => ['file_name'],
     },
     
+    'MyX::Generic::File::CannotOpen' => {
+        isa => 'MyX::Generic::File',
+        fields => ['file_name',],
+    },
+    
     'MyX::Generic::File::BadExtension' => {
         isa => 'MyX::Generic::File',
         fields => ['file_name', 'ext'],
@@ -118,7 +123,7 @@ different objects
 
 =head1 VERSION
 
-This documentation refers to MyX::Generic version 1.0.11.
+This documentation refers to MyX::Generic version 0.0.2.
 
 =head1 Included Modules
 
@@ -183,6 +188,7 @@ see Exception::Class and Exception::Class::Base.
     MyX::Generic::File
     MyX::Generic::File::Empty
     MyX::Generic::File::BadExtension
+    MyX::Generic::File::CannotOpen
     MyX::Generic::BadValue
     MyX::Generic::Ref
     MyX::Generic::Ref::UnsupportedType
@@ -420,6 +426,19 @@ see Exception::Class and Exception::Class::Base.
               exceptions when opperating on files with unrecognized exceptions.
     Fields: file_name => the file with the bad extention
             ext => the extention that is bad
+    Inherits: MyX::Generic::File
+    Comments: NA
+    See Also: NA
+    
+=head2 MyX::Generic::File::CannotOpen
+
+    Title: MyX::Generic::File::CannotOpen
+    Throw Usage: MyX::Generic::File::CannotOpen->throw();
+    Catch Usage: if ( my $e = MyX::Generic::File::CannotOpen->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::File::CannotOpen
+              exceptions when opperating on files.
+    Fields: file_name => the file with the bad extention
     Inherits: MyX::Generic::File
     Comments: NA
     See Also: NA

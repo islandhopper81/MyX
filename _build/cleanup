@@ -1,6 +1,7 @@
 do{ my $x = {
-       'MyX-Generic-v0.0.1' => 1,
+       'MyX-Generic-v0.0.2' => 1,
        'blib' => 1,
-       'MyX-*' => 1
+       'MyX-*' => 1,
+       'MyX-Generic-v0\\.0\\.2' => 1
      };
 $x; }
