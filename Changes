@@ -1,7 +1,11 @@
 Revision history for MyX
 
+0.0.3	Release version Nov 3, 2016
+
 0.0.2	Beta version under development
 	- added MyX::Generic::File::CannotOpen error
+	- added MyX::Generic::Env
+	- added MyX::Generic::MissingExe
 
 0.0.1  Fri Mar  4 15:24:36 2016
        Initial release.
