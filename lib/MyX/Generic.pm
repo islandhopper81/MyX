@@ -329,13 +329,13 @@ see Exception::Class and Exception::Class::Base.
     Comments: NA
     See Also: NA
     
-=head2 MyX::Generic::DoesNotExist::Env
+=head2 MyX::Generic::DoesNotExist::Exe
 
-    Title: MyX::Generic::DoesNotExist::Env
-    Throw Usage: MyX::Generic::DoesNotExist::Env->throw();
-    Catch Usage: if ( my $e = MyX::Generic::DoesNotExist::Env->caught() )
+    Title: MyX::Generic::DoesNotExist::Exe
+    Throw Usage: MyX::Generic::DoesNotExist::Exe->throw();
+    Catch Usage: if ( my $e = MyX::Generic::DoesNotExist::Exe->caught() )
                     { ... }
-    Function: Throw/Catch a MyX::Generic::DoesNotExist::Env exception
+    Function: Throw/Catch a MyX::Generic::DoesNotExist::Exe exception
               when trying to run an executable that does not exist.
     Fields: exe => the executable path that does not exist
     Inherits: MyX::Generic::DoesNotExist
