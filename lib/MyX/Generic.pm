@@ -104,6 +104,15 @@ use Exception::Class (
         isa => 'MyX::Generic::Ref',
         fields => ['this_type', 'supported_types'],
     },
+    
+    'MyX::Generic::Env' => {
+        isa => 'MyX::Generic',
+    },
+    
+    'MyX::Generic::Env::MissingExe' => {
+        isa => 'MyX::Generic::Env',
+        fields => ['exe'],
+    },
 );
 
 # Causes trace to be printed with message.  Doesn't always work!
