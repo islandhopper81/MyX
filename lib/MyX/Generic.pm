@@ -47,6 +47,11 @@ use Exception::Class (
         fields => [ 'dir_name', ],
     },
     
+    'MyX::Generic::DoesNotExist::Exe' => {
+        isa => 'MyX::Generic::DoesNotExist',
+        fields => [ 'exe', ],
+    },
+    
     'MyX::Generic::Digit' => {
         isa => 'MyX::Generic',
     },
@@ -103,15 +108,6 @@ use Exception::Class (
     'MyX::Generic::Ref::UnsupportedType' => {
         isa => 'MyX::Generic::Ref',
         fields => ['this_type', 'supported_types'],
-    },
-    
-    'MyX::Generic::Env' => {
-        isa => 'MyX::Generic',
-    },
-    
-    'MyX::Generic::Env::MissingExe' => {
-        isa => 'MyX::Generic::Env',
-        fields => ['exe'],
     },
 );
 
@@ -189,6 +185,7 @@ see Exception::Class and Exception::Class::Base.
     MyX::Generic::DoesNotExist
     MyX::Generic::DoesNotExist::File
     MyX::Generic::DoesNotExist::Dir
+    MyX::Generic::DoesNotExist::Exe
     MyX::Generic::Digit
     MyX::Generic::Digit::MustBeDigit
     MyX::Generic::Digit::TooSmall
@@ -315,7 +312,7 @@ see Exception::Class and Exception::Class::Base.
     Function: Throw/Catch a MyX::Generic::DoesNotExist::File exception
               when trying to operate on a file that does not exist.
     Fields: file_name => the file path that cannot be found
-    Inherits: MyX::Generic::File
+    Inherits: MyX::Generic::DoesNotExist
     Comments: NA
     See Also: NA
 
@@ -328,7 +325,20 @@ see Exception::Class and Exception::Class::Base.
     Function: Throw/Catch a MyX::Generic::DoesNotExist::Dir exception
               when trying to operate on a directory that does not exist.
     Fields: dir_name => the directory path that does not exist
-    Inherits: MyX::Generic::Dir
+    Inherits: MyX::Generic::DoesNotExist
+    Comments: NA
+    See Also: NA
+    
+=head2 MyX::Generic::DoesNotExist::Env
+
+    Title: MyX::Generic::DoesNotExist::Env
+    Throw Usage: MyX::Generic::DoesNotExist::Env->throw();
+    Catch Usage: if ( my $e = MyX::Generic::DoesNotExist::Env->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::DoesNotExist::Env exception
+              when trying to run an executable that does not exist.
+    Fields: exe => the executable path that does not exist
+    Inherits: MyX::Generic::DoesNotExist
     Comments: NA
     See Also: NA
     
