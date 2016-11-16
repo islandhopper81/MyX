@@ -8,5 +8,3 @@ t/Module.t
 t/pod-coverage.t
 t/pod.t
 ignore.txt
-META.yml
-META.json
