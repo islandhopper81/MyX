@@ -80,6 +80,16 @@ use Exception::Class (
     'MyX::Generic::File' => {
         isa => 'MyX::Generic',
     },
+	
+	'MyX::Generic::File::Unreadable' => {
+        isa => 'MyX::Generic::File',
+        fields => ['file_name'],
+    },
+	
+	'MyX::Generic::File::Unwritable' => {
+        isa => 'MyX::Generic::File',
+        fields => ['file_name'],
+    },
     
     'MyX::Generic::File::Empty' => {
         isa => 'MyX::Generic::File',
@@ -155,6 +165,9 @@ NA
         print $e->error(), " via package ", $e->package(), " at ", $e->file,
             " line ", $e->line();
     }
+	elsif ( $@ ) {
+		# catches other errors
+	}
     
 
 =head1 DESCRIPTION
@@ -192,6 +205,8 @@ see Exception::Class and Exception::Class::Base.
     MyX::Generic::Digit::TooBig
     MyX::Generic::Digit::OOB
     MyX::Generic::File
+	MyX::Generic::File::Unreadable
+	MyX::Generic::File::Unwritable
     MyX::Generic::File::Empty
     MyX::Generic::File::BadExtension
     MyX::Generic::File::CannotOpen
@@ -419,6 +434,32 @@ see Exception::Class and Exception::Class::Base.
               opperating on files.
     Fields: See MyX::Generic
     Inherits: MyX::Generic
+    Comments: NA
+    See Also: NA
+	
+=head2 MyX::Generic::File::Unreadable
+
+    Title: MyX::Generic::File::Unreadable
+    Throw Usage: MyX::Generic::File::Unreadable->throw();
+    Catch Usage: if ( my $e = MyX::Generic::File::Unreadable->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::File::Unreadable exceptions when
+              opperating on an unreadable file.
+    Fields: file_name => the file path wich has an unreadable file
+    Inherits: MyX::Generic::File
+    Comments: NA
+    See Also: NA
+	
+=head2 MyX::Generic::File::Unwritable
+
+    Title: MyX::Generic::File::Unwritable
+    Throw Usage: MyX::Generic::File::Unwritable->throw();
+    Catch Usage: if ( my $e = MyX::Generic::File::Unwritable->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::File::Unwritable exceptions when
+              opperating on an unwritable file.
+    Fields: file_name => the file path wich has an unwritable file
+    Inherits: MyX::Generic::File
     Comments: NA
     See Also: NA
 
