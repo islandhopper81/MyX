@@ -105,6 +105,25 @@ use Exception::Class (
         isa => 'MyX::Generic::File',
         fields => ['file_name', 'ext'],
     },
+	
+	'MyX::Generic::Dir' => {
+        isa => 'MyX::Generic',
+    },
+	
+	'MyX::Generic::Dir::NotADir' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
+	
+	'MyX::Generic::Dir::DoesNotExist' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
+	
+	'MyX::Generic::Dir::Unwritable' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
     
     'MyX::Generic::BadValue' => {
         isa => 'MyX::Generic',
