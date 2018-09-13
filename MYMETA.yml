@@ -1,0 +1,32 @@
+---
+abstract: 'A hierarchy of exceptions that can be used in many'
+author:
+  - 'Scott Yourstone <scott.yourstone81@gmail.com>'
+build_requires:
+  Exception::Class: '0'
+  File::Basename: '0'
+  File::Spec: '0'
+  File::Temp: '0'
+  Test::Exception: '0'
+  Test::More: '0'
+  Test::Pod: '1.14'
+  Test::Pod::Coverage: '1.04'
+dynamic_config: 0
+generated_by: 'Module::Build version 0.421, CPAN::Meta::Converter version 2.143240'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: MyX-Generic
+provides:
+  MyX::Generic:
+    file: lib/MyX/Generic.pm
+    version: v0.0.3
+  MyX::Generic::Ref::UnsupportedType:
+    file: lib/MyX/Generic.pm
+requires:
+  Test::More: '0'
+  version: '0'
+resources:
+  license: http://dev.perl.org/licenses/
+version: v0.0.3
