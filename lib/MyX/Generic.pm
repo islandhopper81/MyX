@@ -80,6 +80,16 @@ use Exception::Class (
     'MyX::Generic::File' => {
         isa => 'MyX::Generic',
     },
+	
+	'MyX::Generic::File::Unreadable' => {
+        isa => 'MyX::Generic::File',
+        fields => ['file_name'],
+    },
+	
+	'MyX::Generic::File::Unwritable' => {
+        isa => 'MyX::Generic::File',
+        fields => ['file_name'],
+    },
     
     'MyX::Generic::File::Empty' => {
         isa => 'MyX::Generic::File',
@@ -95,6 +105,25 @@ use Exception::Class (
         isa => 'MyX::Generic::File',
         fields => ['file_name', 'ext'],
     },
+	
+	'MyX::Generic::Dir' => {
+        isa => 'MyX::Generic',
+    },
+	
+	'MyX::Generic::Dir::NotADir' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
+	
+	'MyX::Generic::Dir::DoesNotExist' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
+	
+	'MyX::Generic::Dir::Unwritable' => {
+        isa => 'MyX::Generic::Dir',
+        fields => ['dir_name'],
+    },
     
     'MyX::Generic::BadValue' => {
         isa => 'MyX::Generic',
@@ -107,12 +136,23 @@ use Exception::Class (
     
     'MyX::Generic::Ref::UnsupportedType' => {
         isa => 'MyX::Generic::Ref',
-        fields => ['this_type', 'supported_types'],
+        fields => ['given_type', 'supported_types'],
     },
 );
 
 # Causes trace to be printed with message.  Doesn't always work!
 MyX::Generic->Trace(1);
+
+package MyX::Generic::Ref::UnsupportedType;
+sub full_message {
+	my ($self) = @_;
+
+	my $msg = $self->message;
+	$msg .= "Given type: " . $self->given_type . "\n";
+	$msg .= "Supported types: " . $self->supported_types . "\n";
+
+	return($msg);
+}
 
 1;
 __END__
@@ -155,6 +195,9 @@ NA
         print $e->error(), " via package ", $e->package(), " at ", $e->file,
             " line ", $e->line();
     }
+	elsif ( $@ ) {
+		# catches other errors
+	}
     
 
 =head1 DESCRIPTION
@@ -192,6 +235,8 @@ see Exception::Class and Exception::Class::Base.
     MyX::Generic::Digit::TooBig
     MyX::Generic::Digit::OOB
     MyX::Generic::File
+	MyX::Generic::File::Unreadable
+	MyX::Generic::File::Unwritable
     MyX::Generic::File::Empty
     MyX::Generic::File::BadExtension
     MyX::Generic::File::CannotOpen
@@ -419,6 +464,32 @@ see Exception::Class and Exception::Class::Base.
               opperating on files.
     Fields: See MyX::Generic
     Inherits: MyX::Generic
+    Comments: NA
+    See Also: NA
+	
+=head2 MyX::Generic::File::Unreadable
+
+    Title: MyX::Generic::File::Unreadable
+    Throw Usage: MyX::Generic::File::Unreadable->throw();
+    Catch Usage: if ( my $e = MyX::Generic::File::Unreadable->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::File::Unreadable exceptions when
+              opperating on an unreadable file.
+    Fields: file_name => the file path wich has an unreadable file
+    Inherits: MyX::Generic::File
+    Comments: NA
+    See Also: NA
+	
+=head2 MyX::Generic::File::Unwritable
+
+    Title: MyX::Generic::File::Unwritable
+    Throw Usage: MyX::Generic::File::Unwritable->throw();
+    Catch Usage: if ( my $e = MyX::Generic::File::Unwritable->caught() )
+                    { ... }
+    Function: Throw/Catch a MyX::Generic::File::Unwritable exceptions when
+              opperating on an unwritable file.
+    Fields: file_name => the file path wich has an unwritable file
+    Inherits: MyX::Generic::File
     Comments: NA
     See Also: NA
 

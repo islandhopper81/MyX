@@ -1,5 +1,12 @@
 Revision history for MyX
 
+0.0.4	Beta version
+	- added custom full_string methods for some exceptions
+	- added MyX::Generic::Dir
+	- added MyX::Generic::Dir::DoesNotExist
+	- added MyX::Generic::Dir::NotADir
+	- added MyX::Generic::Dir::Unwritable
+
 0.0.3	Release version Nov 3, 2016
 
 0.0.2	Beta version under development
