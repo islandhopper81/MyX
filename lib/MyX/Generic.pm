@@ -147,7 +147,7 @@ package MyX::Generic::Ref::UnsupportedType;
 sub full_message {
 	my ($self) = @_;
 
-	my $msg = $self->message;
+	my $msg = $self->message . "\n";
 	$msg .= "Given type: " . $self->given_type . "\n";
 	$msg .= "Supported types: " . $self->supported_types . "\n";
 
